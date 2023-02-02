@@ -40,7 +40,7 @@ DISABLE_UNTRACKED_FILES_DIRTY="true"
 HIST_STAMPS="yyyy-mm-dd"
 
 # Zsh plugins to load
-plugins=(git zsh-autosuggestions zsh-syntax-highlighting zsh-z)
+plugins=(git zsh-autosuggestions zsh-syntax-highlighting z)
 
 # Load oh-my-zsh
 source $ZSH/oh-my-zsh.sh
