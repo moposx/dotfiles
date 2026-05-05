@@ -39,12 +39,16 @@ ssh() {
 
     # Only applicable to WSL environment
     if ! grep -qi "wsl" /proc/version; then
+        command ssh "$@"
+
         return
     fi
 
     # socat is required on WSL side
     command -v socat >/dev/null 2>&1 || {
         echo "Error: socat not installed." >&2
+        command ssh "$@"
+
         return
     }
 
@@ -53,21 +57,22 @@ ssh() {
     if ! ssh-add -l >/dev/null 2>&1; then
         rm -f "$SSH_AUTH_SOCK"
 
-        (   
-            setsid socat
-            UNIX-LISTEN:$SSH_AUTH_SOCK,fork
-            EXEC:"/mnt/c/bin/npiperelay.exe -ei -s //./pipe/openssh-ssh-agent",nofork
-        ) &>/dev/null &
+        setsid socat \
+            UNIX-LISTEN:$SOCK,fork \
+            EXEC:"/mnt/c/bin/npiperelay.exe -ep -s //./pipe/openssh-ssh-agent",nofork \
+            >/dev/null 2>&1 &
 
-        for i in {1..20}; do
+        for _ in {1..20}; do
             [ -S "$SOCK" ] && break
             sleep 0.05
         done
+
     fi
 
     if [ -S "$SOCK" ]; then
         export SSH_AUTH_SOCK="$SOCK"
     fi
 
-    ssh "$@"
+    command ssh "$@"
 }
+
