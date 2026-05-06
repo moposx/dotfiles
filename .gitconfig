@@ -2,6 +2,8 @@
 	defaultBranch = main
 [core]
 	pager = delta
+	autocrlf = false
+	filemode = false
 [user]
 	name = moposx
 	email = moposx@mopo.sx
@@ -23,3 +25,5 @@
 	format = ssh
 [gpg "ssh"]
 	program = ssh-keygen
+[color]
+	ui = true
