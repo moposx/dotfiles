@@ -52,25 +52,34 @@ ssh() {
         return
     }
 
-    SOCK="$HOME/.ssh/agent.sock"
+    local SOCK="$HOME/.ssh/agent.sock"
+    local NPIPERELAY_BIN="/mnt/c/bin/npiperelay.exe"
 
-    if ! ssh-add -l >/dev/null 2>&1; then
-        rm -f "$SSH_AUTH_SOCK"
+    if [[ "$SSH_AUTH_SOCK" != "$SOCK" ]] || ! pgrep -x "socat" >/dev/null || [[ ! -S "$SOCK" ]]; then
 
-        setsid socat \
-            UNIX-LISTEN:$SOCK,fork \
-            EXEC:"/mnt/c/bin/npiperelay.exe -ep -s //./pipe/openssh-ssh-agent",nofork \
-            >/dev/null 2>&1 &
+        # cleanup
+        unset SSH_AUTH_SOCK
+        command pkill -x "socat" >/dev/null 2>&1
+        command rm -f "$SOCK"
 
+        # launch socat via Zsh's disown
+        (command socat UNIX-LISTEN:"$SOCK",fork EXEC:"$NPIPERELAY_BIN -ep -s //./pipe/openssh-ssh-agent",nofork &>/dev/null &!)
+
+        # wait for socket
         for _ in {1..20}; do
-            [ -S "$SOCK" ] && break
-            sleep 0.05
+            if [[ -S "$SOCK" ]] && pgrep -x "socat" >/dev/null; then
+                break
+            fi
+            sleep 0.1
         done
-
     fi
 
-    if [ -S "$SOCK" ]; then
+    # socket's up, set $SSH_AUTH_SOCK
+    if [[ -S "$SOCK" ]]; then
         export SSH_AUTH_SOCK="$SOCK"
+    else
+        echo "Error: Failed to establish SSH agent bridge." >&2
+        unset SSH_AUTH_SOCK
     fi
 
     command ssh "$@"
