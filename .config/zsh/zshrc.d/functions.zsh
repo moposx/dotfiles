@@ -15,7 +15,7 @@ bhelp() {
     echo "------------------------------------------------------------"
 
     # Invoke bash to run the help built-in
-    bash -c "help "$@""
+    bash -c 'help "$@"' bash "$@"
 }
 
 # change CWD to one of previous visited directory
