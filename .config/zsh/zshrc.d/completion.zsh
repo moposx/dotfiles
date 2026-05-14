@@ -1,7 +1,7 @@
 # Enable completion menu
 zstyle ':completion:*' menu select
 zstyle ':completion:*:*:*:*:*' list-colors "${(s.:.)LS_COLORS}" "ma=1;7"
-zstyle ':completion:*' matcher-list 'm:{a-z0-9}={A-Z0-0}'                  # ignore case
+zstyle ':completion:*' matcher-list 'm:{a-z0-9}={A-Z0-9}'                  # ignore case
 zstyle ':completion:*' list-grouping 'yes'                                 # group candidates visually
 zstyle ':completion:*' group-name ''                                       # Group by type
 zstyle ':completion:*:descriptions' format '%B%F{4}-- %d --%f%b'           # Style headers
