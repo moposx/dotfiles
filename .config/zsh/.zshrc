@@ -1,5 +1,10 @@
 # Load Antidote
-source $ZDOTDIR/.antidote/antidote.zsh
+if [[ ! -r "$ZDOTDIR/.antidote/antidote.zsh" ]]; then
+    print -u2 "Antidote is missing: $ZDOTDIR/.antidote/antidote.zsh"
+    return 1
+fi
+
+source "$ZDOTDIR/.antidote/antidote.zsh"
 
 # Be careful: the order of loading matters.
 _modules=(
