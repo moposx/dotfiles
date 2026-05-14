@@ -1,3 +1,3 @@
 # Don't edit this file.
 
-source "$ZDOTDIR/.zshrc"
+[[ $- == *i* ]] && source "$ZDOTDIR/.zshrc"
