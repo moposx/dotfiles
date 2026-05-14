@@ -55,11 +55,11 @@ ssh() {
     local SOCK="$HOME/.ssh/agent.sock"
     local NPIPERELAY_BIN="/mnt/c/bin/npiperelay.exe"
 
-    if [[ "$SSH_AUTH_SOCK" != "$SOCK" ]] || ! pgrep -x "socat" >/dev/null || [[ ! -S "$SOCK" ]]; then
+    if [[ "$SSH_AUTH_SOCK" != "$SOCK" ]] || ! pgrep -f "socat UNIX-LISTEN:$SOCK," >/dev/null || [[ ! -S "$SOCK" ]]; then
 
         # cleanup
         unset SSH_AUTH_SOCK
-        command pkill -x "socat" >/dev/null 2>&1
+        command pkill -f "socat UNIX-LISTEN:$SOCK," >/dev/null 2>&1
         command rm -f "$SOCK"
 
         # launch socat via Zsh's disown
@@ -67,7 +67,7 @@ ssh() {
 
         # wait for socket
         for _ in {1..20}; do
-            if [[ -S "$SOCK" ]] && pgrep -x "socat" >/dev/null; then
+            if [[ -S "$SOCK" ]] && pgrep -f "socat UNIX-LISTEN:$SOCK," >/dev/null; then
                 break
             fi
             sleep 0.1
