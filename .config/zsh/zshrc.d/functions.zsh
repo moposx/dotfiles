@@ -52,6 +52,11 @@ ssh() {
         return
     }
 
+    # Ensure ~/.ssh directory exists with correct permissions
+    if [[ ! -d "$HOME/.ssh" ]]; then
+        command mkdir -m 0700 "$HOME/.ssh"
+    fi
+
     local SOCK="$HOME/.ssh/agent.sock"
     local NPIPERELAY_BIN="/mnt/c/bin/npiperelay.exe"
 
