@@ -1,6 +1,6 @@
 # Creates a directory and immediately changes into it
 mkcd() {
-    mkdir -p "$1" && cd "$1"
+    command mkdir -p "$1" && cd "$1"
 }
 
 # Helper to view Bash built-in documentation from Zsh
@@ -15,7 +15,7 @@ bhelp() {
     echo "------------------------------------------------------------"
 
     # Invoke bash to run the help built-in
-    bash -c 'help "$@"' bash "$@"
+    command bash -c 'help "$@"' bash "$@"
 }
 
 # change CWD to one of previous visited directory
@@ -38,7 +38,7 @@ ssh() {
     # Share SSH keys between Windows and WSL
 
     # Only applicable to WSL environment
-    if ! grep -qi "wsl" /proc/version; then
+    if ! command grep -qi "wsl" /proc/version; then
         command ssh "$@"
 
         return
@@ -60,7 +60,7 @@ ssh() {
     local SOCK="$HOME/.ssh/agent.sock"
     local NPIPERELAY_BIN="/mnt/c/bin/npiperelay.exe"
 
-    if [[ "$SSH_AUTH_SOCK" != "$SOCK" ]] || ! pgrep -f "socat UNIX-LISTEN:$SOCK," >/dev/null || [[ ! -S "$SOCK" ]]; then
+    if [[ "$SSH_AUTH_SOCK" != "$SOCK" ]] || ! command pgrep -f "socat UNIX-LISTEN:$SOCK," >/dev/null || [[ ! -S "$SOCK" ]]; then
 
         # cleanup
         unset SSH_AUTH_SOCK
@@ -72,10 +72,10 @@ ssh() {
 
         # wait for socket
         for _ in {1..20}; do
-            if [[ -S "$SOCK" ]] && pgrep -f "socat UNIX-LISTEN:$SOCK," >/dev/null; then
+            if [[ -S "$SOCK" ]] && command pgrep -f "socat UNIX-LISTEN:$SOCK," >/dev/null; then
                 break
             fi
-            sleep 0.1
+            command sleep 0.1
         done
     fi
 
