@@ -30,6 +30,12 @@ export RUSTUP_HOME="$HOME/.local/share/rustup"
 # lesspipe
 [ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
 
+# bat as man's pager
+if command -v bat &>/dev/null; then
+    export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export MANROFFOPT="-c"
+fi
+
 # PATH
 typeset -gU path PATH # deduplicate PATH entries
 
