@@ -3,7 +3,6 @@
 [core]
 	pager = delta
 	autocrlf = false
-	filemode = false
 [user]
 	name = moposx
 	email = moposx@mopo.sx
