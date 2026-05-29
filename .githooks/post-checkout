@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+# post-checkout hook — lock down sensitive zsh dotfiles to read-only
+#
+# $1 = previous HEAD ref
+# $2 = new HEAD ref
+# $3 = branch checkout (1) or file checkout (0)
+
+set -euo pipefail
+
+# Only act on branch checkouts, not individual file checkouts
+if [ "$3" != "1" ]; then
+    exit 0
+fi
+
+readonly TARGETS=(
+    ".config/zsh/.zprofile"
+    ".config/zsh/.zshenv"
+)
+
+for f in "${TARGETS[@]}"; do
+    if [ -f "$f" ]; then
+        chmod 444 "$f"
+    fi
+done
