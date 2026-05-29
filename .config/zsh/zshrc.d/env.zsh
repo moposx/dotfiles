@@ -27,6 +27,9 @@ export RUSTUP_HOME="$HOME/.local/share/rustup"
 # Opam
 [[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" >/dev/null  2>/dev/null
 
+# lesspipe
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
 # PATH
 typeset -gU path PATH # deduplicate PATH entries
 
