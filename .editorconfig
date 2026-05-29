@@ -17,5 +17,5 @@ switch_case_indent = true
 space_redirects = false
 keep_padding = true
 
-[.gitignore]
+[.gitconfig]
 indent_style = tab

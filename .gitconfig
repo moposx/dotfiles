@@ -17,8 +17,8 @@
 	diffFilter = delta --color-only
 [delta]
 	navigate = true
-    line-numbers = true
-    side-by-side = true
+	line-numbers = true
+	side-by-side = true
 [merge]
 	conflictStyle = zdiff3
 [gpg]
