@@ -25,10 +25,14 @@ export CARGO_HOME="$HOME/.local/share/cargo"
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 
 # Opam
-[[ ! -r "$HOME/.opam/opam-init/init.zsh" ]] || source "$HOME/.opam/opam-init/init.zsh" >/dev/null  2>/dev/null
+if [[ -r "$HOME/.opam/opam-init/init.zsh" ]]; then
+    source "$HOME/.opam/opam-init/init.zsh" >/dev/null
+fi
 
 # lesspipe
-[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+if [[ -x "/usr/bin/lesspipe" ]]; then
+    eval "$(SHELL=/bin/sh lesspipe)"
+fi
 
 # bat as man's pager
 if command -v bat &>/dev/null; then
