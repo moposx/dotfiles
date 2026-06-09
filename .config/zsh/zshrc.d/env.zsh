@@ -37,6 +37,10 @@ fi
 # lesspipe
 if [[ -x "/usr/bin/lesspipe" ]]; then
     eval "$(SHELL=/bin/sh lesspipe)"
+elif [[ -x "/usr/bin/lesspipe.sh" ]]; then
+    export LESSOPEN="|lesspipe.sh %s"
+else
+    : # do nothing
 fi
 
 # bat as man's pager
