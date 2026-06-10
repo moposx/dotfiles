@@ -29,11 +29,6 @@ export SWIFTLY_HOME_DIR="/home/moposx/.local/share/swiftly"
 export SWIFTLY_BIN_DIR="/home/moposx/.local/share/swiftly/bin"
 export SWIFTLY_TOOLCHAINS_DIR="/home/moposx/.local/share/swiftly/toolchains"
 
-# Opam
-if [[ -r "$HOME/.opam/opam-init/init.zsh" ]]; then
-    source "$HOME/.opam/opam-init/init.zsh" >/dev/null
-fi
-
 # lesspipe
 if [[ -x "/usr/bin/lesspipe" ]]; then
     eval "$(SHELL=/bin/sh lesspipe)"
@@ -60,6 +55,7 @@ typeset -gU path PATH # deduplicate PATH entries
 path=(
     $HOME/bin(N-/)
     $HOME/go/bin(N-/)
+    $HOME/.opam/default/bin(N-/)
     $HOME/.local/bin(N-/)
     $HOME/.local/share/mise/shims(N-/)
     $HOME/.local/share/fnm/aliases/default(N-/)
