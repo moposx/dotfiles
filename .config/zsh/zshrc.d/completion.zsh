@@ -8,4 +8,8 @@ zstyle ':completion:*:descriptions' format '%B%F{4}-- %d --%f%b'           # Sty
 zstyle ':completion:*:messages' format '%B%F{4}-- %d --%f%b'               # Style messages
 zstyle ':completion:*:warnings' format '%B%F{1}-- no matches found --%f%b' # Style warnings
 
+# Enable completion cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "$HOME/.cache/zsh/zcompcache"
+
 zstyle ':plugin:ez-compinit' 'compstyle' 'zshzoo' # ez-compinit completion style
