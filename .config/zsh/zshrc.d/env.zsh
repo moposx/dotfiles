@@ -24,11 +24,6 @@ ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE=20
 export CARGO_HOME="$HOME/.local/share/cargo"
 export RUSTUP_HOME="$HOME/.local/share/rustup"
 
-# Swiftly
-export SWIFTLY_HOME_DIR="/home/moposx/.local/share/swiftly"
-export SWIFTLY_BIN_DIR="/home/moposx/.local/share/swiftly/bin"
-export SWIFTLY_TOOLCHAINS_DIR="/home/moposx/.local/share/swiftly/toolchains"
-
 # lesspipe
 if [[ -x "/usr/bin/lesspipe" ]]; then
     eval "$(SHELL=/bin/sh lesspipe)"
@@ -60,7 +55,6 @@ path=(
     $HOME/.local/share/mise/shims(N-/)
     $HOME/.local/share/fnm/aliases/default(N-/)
     $HOME/.local/share/cargo/bin(N-/)
-    $SWIFTLY_BIN_DIR(N-/)
     $path
 )
 
