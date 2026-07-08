@@ -4,6 +4,7 @@ alias mv='command mv -iv'
 alias rm='command rm -iv'
 alias md='command mkdir -pv'
 alias mkdir='command mkdir -pv'
+alias help='run-help'
 
 if command -v eza &>/dev/null; then
     alias ls='eza --icons --color --git --group-directories-first --time-style=long-iso'

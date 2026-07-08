@@ -21,16 +21,8 @@ bhelp() {
 # change CWD to one of previous visited directory
 autoload -Uz cdr
 
-# run-help
-
-help() {
-    if ! whence run-help >/dev/null; then
-        unalias run-help 2>/dev/null
-        autoload -Uz run-help
-    fi
-
-    run-help "$@"
-}
+# Zsh run-help
+unalias run-help 2>/dev/null && autoload -Uz run-help
 
 ssh() {
     unfunction ssh
