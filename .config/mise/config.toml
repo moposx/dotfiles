@@ -1,5 +1,6 @@
 [settings]
 lockfile = true
+minimum_release_age = "0s"
 
 [tools]
 "aqua:Schniz/fnm" = "latest"
@@ -7,4 +8,9 @@ usage = "latest"
 bottom = "latest"
 lazygit = "latest"
 "go:github.com/tmuxpack/tpack/cmd/tpack" = "latest"
+claude-code = "latest"
 doggo = "latest"
+zig = "latest"
+zls = "latest"
+opencode = "latest"
+tlrc = "latest"

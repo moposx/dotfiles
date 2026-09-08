@@ -7,40 +7,91 @@ backend = "aqua:Schniz/fnm"
 [tools."aqua:Schniz/fnm"."platforms.linux-x64"]
 checksum = "sha256:7807664f39d39fc518da1c35ba0181e4b3267603c4b1dedeb4b5fc6ae440a224"
 url = "https://github.com/Schniz/fnm/releases/download/v1.39.0/fnm-linux.zip"
+url_api = "https://api.github.com/repos/Schniz/fnm/releases/assets/368341191"
 
 [[tools.bottom]]
-version = "0.12.3"
+version = "0.14.9"
 backend = "aqua:ClementTsang/bottom"
 
 [tools.bottom."platforms.linux-x64"]
-checksum = "sha256:0d6352079422fda8f4ee242eb849f45a6008db96d6c1cd35e8436babc51bc33f"
-url = "https://github.com/ClementTsang/bottom/releases/download/0.12.3/bottom_x86_64-unknown-linux-musl.tar.gz"
+checksum = "sha256:e0c325829e8bdcea25a8a7651da05dbb6f1fc109ac5d2f0187867d3d5d9c0df8"
+url = "https://github.com/ClementTsang/bottom/releases/download/0.14.9/bottom_x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/ClementTsang/bottom/releases/assets/531978159"
 provenance = "github-attestations"
 
+[[tools.claude-code]]
+version = "2.1.263"
+backend = "aqua:anthropics/claude-code"
+
+[tools.claude-code."platforms.linux-x64"]
+checksum = "sha256:7f1444a22ba7c0949b728a19511ed8e47d218ab23b32dbb0a557fe9798ad7ce6"
+url = "https://github.com/anthropics/claude-code/releases/download/v2.1.263/claude-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/anthropics/claude-code/releases/assets/546595199"
+
 [[tools.doggo]]
-version = "1.1.7"
+version = "1.4.0"
 backend = "aqua:mr-karan/doggo"
 
 [tools.doggo."platforms.linux-x64"]
-checksum = "sha256:a908d045dbda977482927fd90ee1ab2020115fbf0905b93c7d6ef40d357b5392"
-url = "https://github.com/mr-karan/doggo/releases/download/v1.1.7/doggo_1.1.7_Linux_x86_64.tar.gz"
+checksum = "sha256:f85e2471737677a5fa65491b4241e0f46960aae6cc2211cc660ee6394a1a3d06"
+url = "https://github.com/mr-karan/doggo/releases/download/v1.4.0/doggo-linux-x86_64.tar.gz"
+url_api = "https://api.github.com/repos/mr-karan/doggo/releases/assets/539320012"
 
 [[tools."go:github.com/tmuxpack/tpack/cmd/tpack"]]
-version = "1.0.0"
+version = "1.2.1"
 backend = "go:github.com/tmuxpack/tpack/cmd/tpack"
 
 [[tools.lazygit]]
-version = "0.62.2"
+version = "0.65.0"
 backend = "aqua:jesseduffield/lazygit"
 
 [tools.lazygit."platforms.linux-x64"]
-checksum = "sha256:8b9a4c2d0969cbea92b45c956dd2a44e1ba76900c9df49f1c60984045ce77984"
-url = "https://github.com/jesseduffield/lazygit/releases/download/v0.62.2/lazygit_0.62.2_linux_x86_64.tar.gz"
+checksum = "sha256:44d8e7dd1484b4a66e191bd4ab25a71e8b4b3a65ab122f838e65677ef58c5506"
+url = "https://github.com/jesseduffield/lazygit/releases/download/v0.65.0/lazygit_0.65.0_linux_x86_64.tar.gz"
+url_api = "https://api.github.com/repos/jesseduffield/lazygit/releases/assets/545957203"
+
+[[tools.opencode]]
+version = "1.18.29"
+backend = "aqua:anomalyco/opencode"
+
+[tools.opencode."platforms.linux-x64"]
+checksum = "sha256:ea800b7ff56226b70952126c9fc1e2517ca4c4b5682fd9d3f9e87449697a1194"
+url = "https://github.com/anomalyco/opencode/releases/download/v1.18.29/opencode-linux-x64.tar.gz"
+url_api = "https://api.github.com/repos/anomalyco/opencode/releases/assets/545047604"
+
+[[tools.tlrc]]
+version = "1.13.1"
+backend = "aqua:tldr-pages/tlrc"
+
+[tools.tlrc."platforms.linux-x64"]
+checksum = "sha256:a0d7d963f2bced8a4fa7ab1a42f24140abdb40ba6033f0996dea2e826e341819"
+url = "https://github.com/tldr-pages/tlrc/releases/download/v1.13.1/tlrc-v1.13.1-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/tldr-pages/tlrc/releases/assets/427272471"
+provenance = "github-attestations"
 
 [[tools.usage]]
-version = "3.4.0"
+version = "6.8.0"
 backend = "aqua:jdx/usage"
 
 [tools.usage."platforms.linux-x64"]
-checksum = "sha256:1a54260df50f1764bc8cbabf8763f2a6314c5025d3b06b512d02898eb28768b3"
-url = "https://github.com/jdx/usage/releases/download/v3.4.0/usage-x86_64-unknown-linux-musl.tar.gz"
+checksum = "sha256:468c27b16302250cf74f2bddb0d0539b958ae3a391d226acc73bdd714c2a18cb"
+url = "https://github.com/jdx/usage/releases/download/v6.8.0/usage-x86_64-unknown-linux-gnu.tar.gz"
+url_api = "https://api.github.com/repos/jdx/usage/releases/assets/547479229"
+
+[[tools.zig]]
+version = "0.16.0"
+backend = "core:zig"
+
+[tools.zig."platforms.linux-x64"]
+checksum = "sha256:70e49664a74374b48b51e6f3fdfbf437f6395d42509050588bd49abe52ba3d00"
+url = "https://ziglang.org/download/0.16.0/zig-x86_64-linux-0.16.0.tar.xz"
+provenance = "minisign"
+
+[[tools.zls]]
+version = "0.16.0"
+backend = "aqua:zigtools/zls"
+
+[tools.zls."platforms.linux-x64"]
+checksum = "blake3:55acb7cb784ec492be727c71e9216c00860c5e1d7f74ac82cac491b762c943e4"
+url = "https://builds.zigtools.org/zls-x86_64-linux-0.16.0.tar.xz"
+provenance = "minisign"
