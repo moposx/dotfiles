@@ -14,3 +14,4 @@ zig = "latest"
 zls = "latest"
 opencode = "latest"
 tlrc = "latest"
+"github:nxtrace/NTrace-core" = { version = "latest", asset_pattern = "nexttrace_linux_amd64" }
