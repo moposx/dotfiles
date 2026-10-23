@@ -10,6 +10,12 @@ return {
   opts = {
     -- change colorscheme
     colorscheme = "rose-pine",
+    status = {
+      attributes = {
+        buffer_active = { bold = true, italic = false },
+        tab_active = { bold = true, italic = false },
+      },
+    },
     -- AstroUI allows you to easily modify highlight groups easily for any and all colorschemes
     highlights = {
       init = { -- this table overrides highlights in all themes
