@@ -3,8 +3,6 @@ lockfile = true
 minimum_release_age = "0s"
 
 [tools]
-"aqua:Schniz/fnm" = "latest"
-usage = "latest"
 bottom = "latest"
 lazygit = "latest"
 "go:github.com/tmuxpack/tpack/cmd/tpack" = "latest"
@@ -15,3 +13,8 @@ zls = "latest"
 opencode = "latest"
 tlrc = "latest"
 "github:nxtrace/NTrace-core" = { version = "latest", asset_pattern = "nexttrace_linux_amd64" }
+"aqua:jdx/usage" = "latest"
+"github:JCWasmx86/mesonlsp" = "latest"
+"aqua:dalance/procs" = "latest"
+pi = "latest"
+pnpm = "latest"
