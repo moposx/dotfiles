@@ -51,6 +51,7 @@ path=(
     $HOME/bin(N-/)
     $HOME/go/bin(N-/)
     $HOME/.opam/default/bin(N-/)
+    $HOME/.rakubrew/shims(N-/)
     $HOME/.local/bin(N-/)
     $HOME/.local/share/mise/shims(N-/)
     $HOME/.local/share/fnm/aliases/default(N-/)
